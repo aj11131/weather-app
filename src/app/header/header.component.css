@@ -1,0 +1,103 @@
+.container {
+  background-color: black;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-container{
+  display: flex;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  margin: 1rem 0rem 1rem 1rem;
+}
+
+.thermo {
+  width: 50px;
+}
+
+.ds {
+  width: 100px;
+  margin-left: 2rem;
+}
+
+.searchIcon{
+  display: none;
+}
+
+.dslogo {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  background: white;
+  height: 1.7em;
+  width: 400px;
+  min-width: 250px;
+  text-indent: 10px;
+  border: 1px solid grey;
+  display: block;
+  font-size: 1.5em;
+}
+input:focus {
+  background: white;
+  outline: none;
+}
+
+.searchResults {
+  position: absolute;
+  width: 400px;
+  height: auto;
+  z-index: 0;
+  background-color: white;
+  overflow: auto;
+}
+
+button:hover{
+  background-color: grey;
+}
+
+@media (max-width: 1050px) {
+  .search-container {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    left: 0;
+    background-color: black;
+  }
+
+  input {
+    margin: 0 auto;
+    width: 100%;
+    border-radius: none;
+  }
+
+  .searchResults {
+    margin: 0 auto;
+    width: 100%;
+    border-radius: none;
+  }
+
+  .ds {
+    display: none;
+  }
+
+  .searchIcon {
+    display: block;
+    width: 30px;
+    margin-right: 2rem;
+  }
+}

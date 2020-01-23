@@ -1,0 +1,29 @@
+.container {
+    height: 100%;
+    background-color: var(--main-bg-color);
+    display: grid;
+    grid-template-rows: 2fr 3fr;
+  }
+
+  .tempInfo {
+    margin: 1rem auto;
+    grid-row-start: 1;
+  }
+
+  h1, h2, h3, p {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 5rem;
+    margin: 0;
+  }
+
+  .weatherIcon {
+    grid-row: 2/3;
+    text-align: center;
+  }
+
+  img{
+    width: 50%;
+  }

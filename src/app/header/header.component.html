@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="flex-container">
+    <div class="title">
+      <h1>Weather</h1>
+    </div>
+    <div class="logo">
+      <img class="thermo"src="/assets/weather-icons/thermometer.png" alt="">
+    </div>
+  </div>
+  <div class="dslogo">
+    <div class="searchBar">
+      <div class="search-container" #searchContainer>
+        <input type="text" placeholder="Search a location..."  #search>
+        <div class="searchResults">
+          <app-search *ngFor="let result of results" [result]="result" (click)="onSelectResult(result)"></app-search>
+        </div>
+      </div>
+    </div>
+    <a href="https://darksky.net/poweredby/"><img class="ds" src="/assets/poweredby-darkbackground.png" alt=""></a>
+    <img class="searchIcon" src="/assets/search.png" alt="" (click)="toggleSearchBar()">
+  </div>
+</div>

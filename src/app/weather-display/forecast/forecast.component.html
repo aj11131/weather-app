@@ -1,0 +1,5 @@
+<div class="container">
+  <app-forecast-item *ngFor="let forecast of forecasts; let last = last" [forecast]=forecast [ngClass]="{'last-child': last}"></app-forecast-item>
+</div>
+
+
