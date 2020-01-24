@@ -1,6 +1,7 @@
 const express = require('express');
 const fetch = require('node-fetch');
 require('dotenv').config({path: 'backend/.env'});
+const serverless = require('serverless-http');
 const app = express();
 const PORT = process.env.PORT || "3000";
 
@@ -49,3 +50,5 @@ app.get('/locationDetails/:id', async (req, res, next) => {
   const locationDetails = await response.json();
   res.json(locationDetails);
 });
+
+module.exports.handler = serverless(app);
