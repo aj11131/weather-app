@@ -1,0 +1,21 @@
+.container {
+  border-bottom: 1px grey solid;
+  color: black;
+}
+
+.container:hover {
+  background-color: #f4f4f4;
+}
+
+h3, p {
+  margin: 0;
+  padding: 15px;
+}
+
+h3 {
+  padding-bottom: 0;
+}
+
+p {
+  padding-top: 5px;
+}

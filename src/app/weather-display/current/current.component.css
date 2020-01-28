@@ -1,0 +1,45 @@
+.container {
+    height: 100%;
+    background-color: var(--main-bg-color);
+    display: grid;
+    grid-template-rows: 2fr 3fr;
+  }
+
+  .tempInfo {
+    margin: 1rem auto;
+    grid-row-start: 1;
+  }
+
+  h1, h2, h3, p {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 5rem;
+    margin: 0;
+  }
+
+  .weatherIcon {
+    grid-row: 2/3;
+    text-align: center;
+  }
+
+  img{
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid grey;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

@@ -1,0 +1,9 @@
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+app-weather-display {
+  flex: 1;
+}

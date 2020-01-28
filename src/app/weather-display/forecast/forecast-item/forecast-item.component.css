@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+img {
+  width: 15%;
+}
+
