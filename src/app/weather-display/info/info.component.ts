@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Weather } from 'src/app/shared/weather.model';
 import { WeatherService } from 'src/app/shared/weather.service';
 import { bearingToDirection } from './bearingToDirection';
+import { LocationService } from 'src/app/shared/location.service';
 
 @Component({
   selector: 'app-info',
@@ -19,7 +20,7 @@ export class InfoComponent implements OnInit {
   cloudCover: string;
   pressure: string;
 
-  constructor(private weatherService: WeatherService) { }
+  constructor(private weatherService: WeatherService, private locationService: LocationService) { }
 
   ngOnInit() {
     this.weatherService.weatherData$.subscribe(
@@ -35,6 +36,20 @@ export class InfoComponent implements OnInit {
           this.cloudCover = (Number(weather.currently.cloudCover) * 100).toFixed(0).toString() + '%';
           this.pressure = (Number(weather.currently.pressure) / 33.864).toFixed(2).toString() + ' in.';
         }
+      }
+    );
+
+    this.locationService.locationChange$.subscribe(
+      () => {
+        this.precipProbability = '';
+        this.humidity = '';
+        this.windSpeed = '';
+        this.windBearing = '';
+        this.windDirection = '';
+        this.visibility = '';
+        this.uvIndex = '';
+        this.cloudCover = '';
+        this.pressure = '';
       }
     );
   }

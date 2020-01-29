@@ -71,7 +71,18 @@ export class CurrentComponent implements OnInit {
         }
       }
     });
-
     this.locationService.getWeatherandLocation();
+
+    this.locationService.locationChange$.subscribe(
+      () => {
+        this.iconRef.nativeElement.style.display = 'none';
+        this.loader.nativeElement.style.display = 'block';
+        this.currentTemp = '';
+        this.feelsLikeTemp = '';
+        this.lowTemp = '';
+        this.highTemp = '';
+        this.time = null;
+      }
+    );
   }
 }

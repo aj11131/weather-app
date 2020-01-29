@@ -16,6 +16,9 @@ import { Place } from './place.model';
   positionData = new BehaviorSubject<any>(null);
   positionData$ = this.positionData.asObservable();
 
+  locationChange = new BehaviorSubject<any>(null);
+  locationChange$ = this.locationChange.asObservable();
+
   constructor(private http: HttpClient, private weatherService: WeatherService) { }
 
   searchAutoComplete(input: string) {
@@ -30,6 +33,10 @@ import { Place } from './place.model';
     return new Promise((resolve, reject) => {
       navigator.geolocation.getCurrentPosition(resolve, reject);
     });
+  }
+
+  onLocationChange() {
+    this.locationChange.next(null);
   }
 
   reverseGeocode(lat: string, lon: string) {

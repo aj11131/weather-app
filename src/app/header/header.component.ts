@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { LocationService } from '../shared/location.service';
 import { WeatherService } from '../shared/weather.service';
 import { GooglePlace } from '../shared/google-place.model';
 import { GooglePlaces } from '../shared/google-places.model';
 import { GoogleLocationDetail } from '../shared/google-location-detail.model';
 import { fromEvent, Subscription } from 'rxjs';
-import { debounceTime, map, filter } from 'rxjs/operators';
+import { debounceTime, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -50,6 +50,8 @@ export class HeaderComponent implements AfterViewInit, OnDestroy {
   }
 
   onSelectResult(result: GooglePlace) {
+    this.locationService.onLocationChange();
+
     this.search.nativeElement.value = result.description;
 
     this.locationService.getLocationDetails(result.place_id).subscribe(
