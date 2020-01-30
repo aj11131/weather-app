@@ -53,25 +53,23 @@ import { Place } from './place.model';
 
   getWeatherandLocation(lat = null, lon = null) {
     if (!lat && !lon) {
-      try {
         this.getLocationGeo()
           .then((position: {coords: {latitude: string, longitude: string}}) => {
             lat = position.coords.latitude;
             lon = position.coords.longitude;
             this.weatherService.getCurrentWeather(lat, lon);
             this.reverseGeocode(lat, lon);
+          }).catch(() => {
+            return this.getLocationIP().subscribe(
+              (location: Place) => {
+                lat = location.latitude;
+                lon = location.longitude;
+                this.weatherService.getCurrentWeather(lat, lon);
+                this.reverseGeocode(lat, lon);
+              }
+            );
           });
-      } catch {
-        return this.getLocationIP().subscribe(
-          (location: Place) => {
-            lat = location.latitude;
-            lon = location.longitude;
-            this.weatherService.getCurrentWeather(lat, lon);
-            this.reverseGeocode(lat, lon);
-          }
-        );
-      }
-    } else {
+      } else {
       this.weatherService.getCurrentWeather(lat, lon);
       this.reverseGeocode(lat, lon);
     }

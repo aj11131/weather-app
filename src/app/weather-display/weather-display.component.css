@@ -18,18 +18,3 @@ app-info {
 app-forecast {
   width: 100%;
 }
-
-@media (max-width: 1050px) {
-
-  app-current {
-    width: 100vw;
-  }
-
-  app-info {
-    width: 100vw;
-  }
-
-  app-forecast {
-    width: 100vw;
-  }
-}
