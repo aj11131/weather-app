@@ -3,7 +3,6 @@ import { LocationService } from '../../shared/location.service';
 import { WeatherService } from '../../shared/weather.service';
 import { Weather } from 'src/app/shared/weather.model';
 import { weatherIconObj } from 'src/app/shared/weatherIconObj';
-import { Place } from 'src/app/shared/place.model';
 import { StorableLocation } from 'src/app/shared/storable-location.model';
 import { GoogleReverseGeocode } from 'src/app/shared/google-reverse-geocode';
 

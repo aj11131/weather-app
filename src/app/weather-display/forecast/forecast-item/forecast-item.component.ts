@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { WeatherService } from 'src/app/shared/weather.service';
 import { Forecast } from 'src/app/shared/forecast.model';
 import { weatherIconObj } from 'src/app/shared/weatherIconObj';
 

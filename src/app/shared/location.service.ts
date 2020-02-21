@@ -31,7 +31,7 @@ import { Place } from './place.model';
 
   getLocationGeo() {
     return new Promise((resolve, reject) => {
-      navigator.geolocation.getCurrentPosition(resolve, reject);
+      navigator.geolocation.getCurrentPosition(resolve, reject, {timeout: 8000});
     });
   }
 
@@ -60,14 +60,19 @@ import { Place } from './place.model';
             this.weatherService.getCurrentWeather(lat, lon);
             this.reverseGeocode(lat, lon);
           }).catch(() => {
-            return this.getLocationIP().subscribe(
-              (location: Place) => {
-                lat = location.latitude;
-                lon = location.longitude;
-                this.weatherService.getCurrentWeather(lat, lon);
-                this.reverseGeocode(lat, lon);
-              }
-            );
+            try {
+              return this.getLocationIP().subscribe(
+                (location: Place) => {
+                  lat = location.latitude;
+                  lon = location.longitude;
+                  this.weatherService.getCurrentWeather(lat, lon);
+                  this.reverseGeocode(lat, lon);
+                }
+              );
+            } catch {
+              this.weatherService.getCurrentWeather('39.1155', '-94.6268');
+              this.reverseGeocode('39.1155', '-94.6268');
+            }
           });
       } else {
       this.weatherService.getCurrentWeather(lat, lon);
