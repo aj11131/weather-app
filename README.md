@@ -1,5 +1,3 @@
-DEMO: https://weather-app11131.netlify.com/
-
 USAGE:
 This app is designed to display the current weather conditions and a 7 day forecast.
 
